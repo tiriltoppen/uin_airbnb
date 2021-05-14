@@ -11,9 +11,11 @@ const otherFields = `
   add_your_fields_here
 `
 
-const anotherFields = `
-  add_your_fields_here
-`
+const forsideFields = `
+  title,
+  lead,
+  'slug': slug.current,
+`;
 
 export const firstService = async () => {
   const data = await client.fetch(`*[_type == "ADD_YOUR_TYPE_HERE"]{${fields}}`);
@@ -25,7 +27,7 @@ export const secondService = async () => {
   return data;
 };
 
-export const firstServiceWithParam = async (slug) => {
-  const data = await client.fetch(`*[_type == "ADD_YOUR_TYPE_HERE"]{${anotherFields}}`, { slug });
+export const getForside = async (slug) => {
+  const data = await client.fetch(`*[_type == "forside"]{${forsideFields}}`, { slug });
   return data?.[0];
 };

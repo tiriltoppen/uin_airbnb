@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import DefaultLayout from '../layouts/DefaultLayout';
+import Artikkelside from '../pages/Artikkelside';
 import Home from '../pages/Home';
 
 /**
@@ -12,6 +13,9 @@ const Routes = () => (
       <Switch>
         <Route exact path="/">
           <Home />
+        </Route>
+        <Route exact path="/artikkelside">
+          <Artikkelside />
         </Route>
       </Switch>
     </DefaultLayout>
