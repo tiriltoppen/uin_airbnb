@@ -5,7 +5,7 @@ const StyledArticle = styled.article`
   margin: 0;
   with: 100%;
   height: auto;
-  z-index: 2;
+  z-index: 3;
   overflow: hidden;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.5);
   border-radius: 0;
@@ -26,23 +26,26 @@ const StyledCardH2 = styled.h2`
 `;
 
 const StyledCardImage = styled.img`
-  max-width: 90px;
+  max-width: 100px;
 `;
 
 const StyledCardLink = styled.a`
   display: inline-block;
   text-aline: center;
   padding: 0.6rem 0.9rem;
-  color: #fff;
-  border: 1px solid #fff;
+  border: 1px solid;
   text-trandsform: none;
   font-weight: 900;
   padding: 0.5rem 1rem;
   min:width: 54px;
-  text-transform: ppercase;
+  text-transform: uppercase;
   text-decoration: none;
   font-style: italic;
   margine-top: 1.5rem;
+  &:hover {
+    background-color: #fff;
+    color: #333;
+  }
 `;
 
 const StyledCardText = styled.p`
@@ -52,13 +55,11 @@ const StyledCardText = styled.p`
 
 const Card = ({ img, title, text, link }) => (
   <StyledArticle>
-    <StyledCardImage src="https://thispersondoesnotexist.com/" alt="" /> 
-    <StyleCardContent>
-      <StyledCardH2>Title</StyledCardH2>
-      console.log(StyleCardContent);
-      <StyledCardText>Lead</StyledCardText> 
+      <StyledCardImage src={img?.asset?.url} alt={img?.alt} />
+      <StyledCardH2>{title}</StyledCardH2>
+      <StyledCardText>{text}</StyledCardText> 
+      <StyleCardContent>
       <StyledCardLink href="">Link</StyledCardLink>
-      
     </StyleCardContent>
   </StyledArticle>
 );

@@ -6,29 +6,27 @@ import Title from '../components/Title';
 import { Container } from '../styles/Styles';
 import { getForside } from '../utils/yourService';
 
+
 const Home = () => {
 const [data, setData] = useState(null) 
 useEffect(() => {
     const fetchDataAsync = async () => {
         const forside = await getForside('dagens-nyheter');
         setData(forside);
+        console.log(forside);
     };
     fetchDataAsync();
 }, []);
 
 return (
 <Container>
-    <h1>heihei</h1>;
+    <h1>Airbnb</h1>
     <Title title={data?.title} />
-    <Lead lead={data?.lead}/>
-
+    <Lead lead={data?.lead} />
 <Cards>
-    <Card />
-    <Card />
-    <Card />
+    {data?.cards?.length > 0 &&
+    data.cards.map((card) => <Card key={card._key} {...card} />)}
 </Cards>
-
-
 </Container>
 );
 }; 

@@ -13,8 +13,9 @@ const otherFields = `
 
 const forsideFields = `
   title,
-  lead,
   'slug': slug.current,
+  lead,
+  'cards': cards[]{_key, title, text, 'link': []{_key, name, href}, 'img': image{..., asset->{url}}}
 `;
 
 export const firstService = async () => {
@@ -28,6 +29,10 @@ export const secondService = async () => {
 };
 
 export const getForside = async (slug) => {
-  const data = await client.fetch(`*[_type == "forside"]{${forsideFields}}`, { slug });
+  const data = await client.fetch(`*[_type == "forside"]{${forsideFields}}`, 
+  { 
+    slug, 
+  }
+  );
   return data?.[0];
 };
