@@ -5,7 +5,7 @@ const StyledArticle = styled.article`
   margin: 0;
   with: 100%;
   height: auto;
-  z-index: 3;
+  z-index: 2;
   overflow: hidden;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.5);
   border-radius: 0;
@@ -42,10 +42,6 @@ const StyledCardLink = styled.a`
   text-decoration: none;
   font-style: italic;
   margine-top: 1.5rem;
-  &:hover {
-    background-color: #fff;
-    color: #333;
-  }
 `;
 
 const StyledCardText = styled.p`
@@ -59,7 +55,9 @@ const Card = ({ img, title, text, link }) => (
       <StyledCardH2>{title}</StyledCardH2>
       <StyledCardText>{text}</StyledCardText> 
       <StyleCardContent>
-      <StyledCardLink href="">Link</StyledCardLink>
+    
+      <StyledCardLink key={link?._key} href={link?.href}>
+      </StyledCardLink>
     </StyleCardContent>
   </StyledArticle>
 );

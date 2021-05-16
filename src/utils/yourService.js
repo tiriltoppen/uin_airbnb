@@ -29,7 +29,8 @@ export const secondService = async () => {
 };
 
 export const getForside = async (slug) => {
-  const data = await client.fetch(`*[_type == "forside"]{${forsideFields}}`, 
+  const data = await client.fetch(
+    `*[_type == "forside" && slug.current == $slug]{${forsideFields}}`, 
   { 
     slug, 
   }
