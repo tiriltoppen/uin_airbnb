@@ -3,13 +3,10 @@
 
 import client from './client';
 
-const fields = `
-  add_your_fields_here
-`
 
-const otherFields = `
-  add_your_fields_here
-`
+const oppholdFields = `
+  opphold
+`;
 
 const forsideFields = `
   title,
@@ -18,13 +15,9 @@ const forsideFields = `
   'cards': cards[]{_key, title, text, 'link': []{_key, name, href}, 'img': image{..., asset->{url}}}
 `;
 
-export const firstService = async () => {
-  const data = await client.fetch(`*[_type == "ADD_YOUR_TYPE_HERE"]{${fields}}`);
-  return data;
-};
 
-export const secondService = async () => {
-  const data = await client.fetch(`*[_type == "ADD_YOUR_TYPE_HERE"]{${otherFields}}`);
+export const getOpphold = async () => {
+  const data = await client.fetch(`*[_type == "opphold"]{${oppholdFields}}`);
   return data;
 };
 

@@ -21,3 +21,18 @@ margin-left: auto;
   width: 740px;
 }
 `;
+
+export const Row = styled.section`
+  background-color: blue;
+  width: 100%;
+  padding-left: 1rem;
+  padding-top:2rem;
+
+`;
+
+export const Column = styled.section`
+background-color: pink;
+padding-left: 1rem;
+padding-top:2rem;
+width: 100%;
+`;

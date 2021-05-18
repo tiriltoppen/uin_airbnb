@@ -1,6 +1,8 @@
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import DefaultLayout from '../layouts/DefaultLayout';
 import Artikkelside from '../pages/Artikkelside';
+import Contact from '../pages/Contact';
+import Hjeplesenter from '../pages/Hjelpesenter';
 import Home from '../pages/Home';
 
 /**
@@ -16,6 +18,12 @@ const Routes = () => (
         </Route>
         <Route exact path="/artikkelside">
           <Artikkelside />
+        </Route>
+        <Route exact path="/kontakt">
+          <Contact />
+        </Route>
+        <Route exact path="/hjelpesenter">
+          <Hjeplesenter />
         </Route>
       </Switch>
     </DefaultLayout>
