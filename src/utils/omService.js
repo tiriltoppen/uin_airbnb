@@ -1,10 +1,11 @@
 import client from './client';
 
 const omFields = `
-img,
 title,
 'slug': slug.current,
-lead
+lead,
+'cards': cards[]{_key, title, text, 'link': []{_key, name, href}, 'img': image{..., asset->{url}}}
+
 `;
 
 

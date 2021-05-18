@@ -13,10 +13,6 @@ const StyledArticle = styled.article`
 `;
 
 const StyleCardContent = styled.section`
-  position: absolute;
-  buttom: 0px;
-  left: 0;
-  right: 0;
   padding: 1rem;
 `;
 
@@ -52,12 +48,16 @@ const StyledCardText = styled.p`
 const Card = ({ img, title, text, link }) => (
   <StyledArticle>
       <StyledCardImage src={img?.asset?.url} alt={img?.alt} />
+      
       <StyledCardH2>{title}</StyledCardH2>
       <StyledCardText>{text}</StyledCardText> 
       <StyleCardContent>
-    
-      <StyledCardLink key={link?._key} href={link?.href}>
+    {link?.length > 0 &&
+    link.map((item) => (
+       <StyledCardLink key={item?._key} href={item?.href}>
+         {item?.name}  
       </StyledCardLink>
+      ))}
     </StyleCardContent>
   </StyledArticle>
 );

@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { useEffect, useState } from 'react';
 import ContactForm from '../components/ContactForm';
 import ContactRedaksjonen from '../components/ContactRedaksjonen';
