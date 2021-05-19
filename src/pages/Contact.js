@@ -1,4 +1,4 @@
-/* eslint-disable */
+
 import { useEffect, useState } from 'react';
 import ContactForm from '../components/ContactForm';
 import ContactRedaksjonen from '../components/ContactRedaksjonen';
@@ -17,26 +17,26 @@ const Contact = () => {
 const [data, setData] = useState(null);
 useEffect(() => 
 {const fetchDataAsync = async () => {
-  const tideraapen = await getContactByOpen('aapenlordag');
+  const tideraapen = await getContactByOpen('hjelp');
   console.log(tideraapen);
-  
-
 setData(tideraapen);
 }; 
 fetchDataAsync();
 }, []);
+
+
 // AAPEN HER
-const [aapen, setAapen] = useState(null);
+/*const [aapen, setAapen] = useState(null);
 useEffect(() => 
 {const fetchDataAsync = async () => {
-  const tideraapen = await getaapen('aapenlordag');
+  const tideraapen = await getaapen('hjelp');
  setAapen(getContactByOpen);
   
 
 setData(aapen);
 }; 
 fetchDataAsync();
-}, []);
+}, []); */
 
 //SEND KNAPPEN SIN STATE
   const onSubmit = async (data) => {

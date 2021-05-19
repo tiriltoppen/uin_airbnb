@@ -1,10 +1,11 @@
 import Card from "./Card";
 
 const Listview = ({ data }) => {
+    console.log(data);
     return (
     <>
-    {data?.cards?.length > 0 &&
-    data.cards.map((card) => <Card key={card._key} {...card} />)}
+    {data?.length > 0 &&
+    data.map((card) => <Card key={card._key} {...card} />)}
     </>
 
     )

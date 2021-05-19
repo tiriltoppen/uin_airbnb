@@ -12,7 +12,8 @@ const forsideFields = `
   title,
   'slug': slug.current,
   lead,
-  'cards': cards[]{_key, title, text, 'img': image{..., asset->{url}}}
+  kategori,
+  'cards': cards[]{_key, title, slug, kategori, text, 'link': link[]{_key, name, href}, 'img': image{..., asset->{url}}}
 `;
 
 

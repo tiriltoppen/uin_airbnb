@@ -7,28 +7,50 @@ import { getForside } from "../utils/yourService";
 import Listview from "../components/Listview";
 import Gridview from "../components/Gridview";
 import ViewType from "../constant/ViewType";
-
-
+import Footer from "../components/Footer";
+import Categorys from "../constant/Categorys";
 
 
 const Artikkelside = () => {
 const [data, setData] = useState(null) 
-const [viewType, setviewType] = useState(ViewType.gridView) 
+const [viewType, setviewType] = useState(ViewType.gridView); 
+const [kategori, setKategori] = useState([]);
 useEffect(() => {
     const fetchDataAsync = async () => {
         const forside = await getForside('nyheter');
         setData(forside);
-        console.log(forside);
     };
     fetchDataAsync();
 }, []);
 
+const kategoriFilter = (e) => {
+  if (e.kategori)
+    return e.kategori.some(function (a) {
+      return kategori.indexOf(a) != -1;
+    });
+};
+
+const filterData = () => {
+  if (kategori.length > 0) {
+    return data?.cards.filter(kategoriFilter);
+  }
+  return data?.cards;
+};
+
 const displayView = () => {
     if (viewType === ViewType.gridView) {
-      return <Cards><Gridview data={data} /></Cards>;
+      return <Cards><Gridview data={filterData()} /></Cards>;
     }
-    return <Listview data={data} />;
+    return <Listview data={filterData()} />;
   };
+
+const handleSetKategori = (filterkategori) => {
+  if (kategori.includes(filterkategori)) {
+    setKategori(kategori.filter((artikkel) => artikkel !== filterkategori));
+  } else {
+    setKategori([...kategori, filterkategori]);
+  }
+};
 
 return (
 <Container>
@@ -41,11 +63,17 @@ return (
           ListView
         </button>
 
+       {Categorys?.map((artikkel) => (
+        <button key={artikkel.value} style={{ backgroundColor: kategori.includes(artikkel.kategori) ? 'red' : '' }}
+        onClick={() => handleSetKategori(artikkel.value)}>{artikkel.title}</button>
+      ))}
+
     {displayView()}
 
+
+<Footer />
 </Container>
 );
 }; 
-
 
 export default Artikkelside;

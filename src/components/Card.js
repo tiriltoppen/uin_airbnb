@@ -1,4 +1,5 @@
 import styled from 'styled-components/macro';
+import { Link } from 'react-router-dom';
 
 const StyledArticle = styled.article`
   display: block;
@@ -13,11 +14,16 @@ const StyledArticle = styled.article`
 `;
 
 const StyleCardContent = styled.section`
+  left: 0;
+  right: 0; 
+  bottom: 0px;  
   padding: 1rem;
+
+
 `;
 
 const StyledCardH2 = styled.h2`
-  font-size: 1.5 rem;
+  font-size: 1.5rem;
   font-weight: 900;
 `;
 
@@ -27,13 +33,13 @@ const StyledCardImage = styled.img`
 
 const StyledCardLink = styled.a`
   display: inline-block;
-  text-aline: center;
+  text-align: center;
   padding: 0.6rem 0.9rem;
-  border: 1px solid;
-  text-trandsform: none;
+  border: 1px solid #000;
+  text-transform: none;
   font-weight: 900;
   padding: 0.5rem 1rem;
-  min:width: 54px;
+  min-width: 54px;
   text-transform: uppercase;
   text-decoration: none;
   font-style: italic;
@@ -54,9 +60,9 @@ const Card = ({ img, title, text, link }) => (
       <StyleCardContent>
     {link?.length > 0 &&
     link.map((item) => (
-       <StyledCardLink key={item?._key} href={item?.href}>
+       <Link key={item?._key} to={`/artikkel/${item.href}`}>
          {item?.name}  
-      </StyledCardLink>
+      </Link>
       ))}
     </StyleCardContent>
   </StyledArticle>

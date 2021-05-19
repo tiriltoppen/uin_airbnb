@@ -6,6 +6,9 @@ import Contact from '../pages/Contact';
 import Hjeplesenter from '../pages/Hjelpesenter';
 import Home from '../pages/Home';
 import Omoss from '../pages/Omoss';
+import Galleri from '../pages/Galleri';
+import PageNotFound from '../pages/PageNotFound';
+import Artikkel from '../pages/Artikkelen';
 
 /**
  * Her har jeg laget en "rute" til "/" og bruker Home komponenten i pages mappen
@@ -30,6 +33,15 @@ const Routes = () => (
         </Route>
         <Route exact path="/om-oss">
           <Omoss />
+        </Route>
+        <Route exact path="/galleri">
+          <Galleri />
+        </Route>
+        {/* <Route path="/artikkel/:id">
+          <Artikkel />
+</Route> */}
+        <Route>
+          <PageNotFound />
         </Route>
       </Switch>
     </DefaultLayout>
